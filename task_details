@@ -1,0 +1,46 @@
+Task Deadline: 23:59 on the 18th of May 2023  
+Task Description: You are tasked with developing a web application using ASP.NET Core. The application should have the following functionality:
+1.	Implement authentication and authorization using Identity Framework.
+2.	Use Auto Mapper to map between the data models and view models.
+3.	Use GitHub and commit changes and push them daily.
+Requirements:
+•	The application should have two types of users: Admin and User.
+•	Admin should have access to all parts of the application, while User should only be able to access certain pages.
+•	The User should be able to login and logout from the application.
+•	The application should have two main pages: Dashboard and Profile.
+•	The Dashboard page should only be accessible by authenticated users (Admin and User).
+•	The Profile page should be accessible by all users (authenticated and unauthenticated).
+•	The Dashboard page should display a list of users' information (name, email, phone number).
+•	The Profile page should display the User's profile information (name, email, phone number) and allow the User to update their information.
+•	It would be best to use design patterns such as Dependency Injection, Factory, Repository, and others where appropriate.
+•	It would be best to commit all changes daily with descriptive commit messages.
+•	It would be best if you used branching and merging effectively.
+•	You should use GitHub Issues or a similar project management tool to track the project's progress.
+•	You must ensure the code is well-documented and that any external dependencies are listed.
+•	It would be best to share your GitHub repository URL to confirm that you accept the task within 48 hours of receding this email.
+•	. 
+Technical Requirements:
+•	Use ASP.NET Core MVC for the application's architecture.
+•	Use Identity Framework for authentication and authorization.
+•	Use Auto Mapper for mapping between the data models and view models.
+•	Use Entity Framework Core for database access.
+
+Deliverables:
+•	The source code for the web application.
+•	A brief document explaining the architecture, design patterns, and tools used in the application (Extra)
+Evaluation Criteria:
+•	Proper use of Auto Mapper for mapping between data models and view models.
+•	Proper implementation of authentication and authorization using Identity Framework.
+•	Proper implementation of the Dashboard and Profile pages as per the requirements.
+•	Proper use of Entity Framework Core for database access.
+•	Proper documentation of the architecture, design patterns, and tools used in the application.
+•	Proper use of GitHub for version control, including commits, branching, and merging.
+•	Effective use of GitHub Issues or a similar project management tool.
+•	Proper documentation of the code and external dependencies.
+•	Commit messages should be descriptive and follow best practices.
+•	Consistency in committing changes daily.
+•	Proper use of design patterns where appropriate.
+•	Proper implementation of the SOLID principles.
+Notes: 
+•	You can use any front-end framework of your choice.
+•	You are not required to use all available design patterns in the project. It would be best to use only the design patterns where appropriate to ensure that the code is maintainable, scalable, and modular.
