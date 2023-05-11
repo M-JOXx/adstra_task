@@ -5,8 +5,9 @@ namespace adstra_task.Models
 {
     public class Register
     {
+
         [Key]
-        public string Id { get; set; }
+        public string? Id { get; set; }
 
         [Required]
         public string FirstName { get; set; }
