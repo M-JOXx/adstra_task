@@ -1,12 +1,9 @@
-﻿
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace adstra_task.Models
+namespace adstra_task.ViewModels
 {
-    public class Register
+    public class RegisterViewModel
     {
-        [Key]
-        public string? Id { get; set; }
 
         [Required]
         public string FirstName { get; set; }
@@ -24,7 +21,7 @@ namespace adstra_task.Models
 
         [Required]
         [DataType(DataType.Password)]
-        [Compare("Password", ErrorMessage = "Sorry, The Confrirm Password Do not match" )]
+        [Compare("Password", ErrorMessage = "Sorry, The Confrirm Password Do not match")]
         public string ConfirmPassword { get; set; }
 
 
@@ -32,6 +29,5 @@ namespace adstra_task.Models
         public string PhoneNumber { get; set; }
 
         public string? City { get; set; }
-
     }
 }

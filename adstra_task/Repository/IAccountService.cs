@@ -1,4 +1,5 @@
 ﻿using adstra_task.Models;
+using adstra_task.ViewModels;
 using Microsoft.AspNetCore.Identity;
 
 namespace adstra_task.Repository
@@ -9,6 +10,7 @@ namespace adstra_task.Repository
 
         Task<SignInResult> Login(LoginViewModel model);
         
+        Task<ProfileViewModel> GetCurrentUser(string id);
         void Logout();
 
     }

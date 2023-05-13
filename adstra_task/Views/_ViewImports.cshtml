@@ -1,6 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @using adstra_task
 @using adstra_task.Models
+@using adstra_task.ViewModels
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
 
@@ -11,4 +12,6 @@
 @inject IAuthorizationService authorizationService
 
 @inject SignInManager<ApplicationUser> SignInManager;
+@inject UserManager<ApplicationUser> UserManager;
+
 

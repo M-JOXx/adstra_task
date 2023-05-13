@@ -1,11 +1,13 @@
 ﻿using adstra_task.Models;
 using adstra_task.Repository;
+using adstra_task.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace adstra_task.Controllers
 {
+    [Authorize]
     public class AccountController : Controller
     {
         private readonly IAccountService accountService;
@@ -27,19 +29,19 @@ namespace adstra_task.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public IActionResult Register()
         {
             return View();
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public async Task<IActionResult> Register(Register model)
         {
-
-            model.Id =   Guid.NewGuid().ToString();
             var result = await accountService.Register(model);
             
-
+             
             if (result.Succeeded)
             {
                 return RedirectToAction("index","Home");
@@ -59,6 +61,7 @@ namespace adstra_task.Controllers
                 
         
         [HttpPost]
+        [AllowAnonymous]
         public async Task<IActionResult> Login(LoginViewModel model,string returnUrl)
         {
 
@@ -80,5 +83,18 @@ namespace adstra_task.Controllers
             return View(model);
         }
 
+        [HttpGet]
+        [Authorize]
+        public async Task<ActionResult> Profile(string id)
+        {
+            var user = await accountService.GetCurrentUser(id);
+
+            if(user == null)
+            {
+                return NotFound();
+            }
+
+            return View(user);
+        }
     }
 }

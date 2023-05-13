@@ -10,7 +10,9 @@ namespace adstra_task.Data
         {
         }
 
-
         public DbSet<Register> Registers { get; set; }
+
+
+
     }
 }

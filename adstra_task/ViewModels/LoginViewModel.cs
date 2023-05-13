@@ -1,4 +1,4 @@
-﻿namespace adstra_task.Models
+﻿namespace adstra_task.ViewModels
 {
     public class LoginViewModel
     {
@@ -9,7 +9,6 @@
         public bool RememberMe { get; set; }
 
 
-        //public string ReturnUrl { get; set; }
 
     }
 }
