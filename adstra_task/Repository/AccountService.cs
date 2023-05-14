@@ -12,8 +12,9 @@ namespace adstra_task.Repository
         private readonly RoleManager<IdentityRole> roleManager;
         private readonly IMapper mapper;
 
-        public AccountService(UserManager<ApplicationUser> userManager,
-            SignInManager<ApplicationUser> signInManager,RoleManager<IdentityRole> roleManager,IMapper mapper)
+        public AccountService(UserManager<ApplicationUser> userManager
+            ,SignInManager<ApplicationUser> signInManager
+            ,RoleManager<IdentityRole> roleManager,IMapper mapper)
         {
 
             this.userManager = userManager;
@@ -29,7 +30,6 @@ namespace adstra_task.Repository
 
         public async Task<IdentityResult> Register(Register model)
         {
-
             var user = new ApplicationUser
             {
                 FirstName = model.FirstName,
@@ -40,14 +40,20 @@ namespace adstra_task.Repository
                 City = model.City,
             };
 
-            await signInManager.SignInAsync(user,isPersistent: false);
+            var result = await userManager.CreateAsync(user, model.Password);
 
-            return await userManager.CreateAsync(user,model.Password);
+
+            if (result.Succeeded)
+            {
+                await signInManager.SignInAsync(user,isPersistent: false);
+                return result;
+            }
+            
+            return result;
         }
 
         public async Task<SignInResult> Login(LoginViewModel model)
         {
-            
             var result = await signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
 
             return result;
@@ -55,11 +61,11 @@ namespace adstra_task.Repository
         
         public async Task<ProfileViewModel> GetCurrentUser(string id)
         {
-
             var user = await userManager.FindByIdAsync(id);
-            
 
             return mapper.Map<ProfileViewModel>(user);
         }
+
+
     }
 }

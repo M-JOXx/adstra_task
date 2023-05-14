@@ -9,8 +9,6 @@ namespace adstra_task.AutoMapper
     {
         public MappingProfile()
         {
-            //CreateMap<, CreateRoleViewModel>()
-            //                    .ForMember(dest => dest.RoleName, source => source.MapFrom(s => s.));
             CreateMap<ApplicationUser, UsersViewModel >()
                 .ForMember(dest => dest.FullName, source => source.MapFrom(s => s.FirstName + " " + s.LastName))
                 .ForMember(dest => dest.Email, source => source.MapFrom(s => s.Email))

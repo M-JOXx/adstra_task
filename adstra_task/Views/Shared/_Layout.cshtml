@@ -36,7 +36,7 @@
                                 ||(await authorizationService.AuthorizeAsync(User,"user")).Succeeded)
                             {
                                 <li class="nav-item " >
-                                    <a class="nav-link text-dark"  asp-controller="administration" asp-action="Index">Dashboard</a>
+                                    <a class="nav-link text-dark" asp-area="Administration" asp-controller="Administration" asp-action="Index">Dashboard</a>
                                 </li>
                             }
                             <li class="nav-item " >

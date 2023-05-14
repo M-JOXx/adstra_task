@@ -32,7 +32,7 @@ namespace adstra_task.Repository
 
         public IEnumerable<UsersViewModel> AllUsers()
         {
-            var c =  userManager.Users;
+            var c = userManager.Users;
             return _mapper.Map<IEnumerable<UsersViewModel>>(c); 
         }
 
