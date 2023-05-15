@@ -7,7 +7,43 @@ html {
     font-size: 16px;
   }
 }
+nav {
+    background-color: white;
+    
+}
+.navbar-brand {
+    color: #0C5EE2;
+    font-size: x-large;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
 
+h2>#ads {
+    color: #0C5EE2;
+}
+    .navbar-brand:hover {
+        color: #0C5EE2;
+    }
+
+.nav-link {
+    color: black;
+    font-size: medium;
+    font: bolder;
+    font-family: Arial, Helvetica, sans-serif
+}
+    .nav-link:hover {
+        color: #0C5EE2;
+        border-bottom: solid 1px #0C5EE2;
+    }
+/*.dropdown-menu {
+    background-color: black
+}
+.dropdown-menu:hover{
+    background-color: black
+}
+
+.navbar-nav ul li {
+    color: white;
+}*/
 html {
   position: relative;
   min-height: 100%;
@@ -24,3 +60,5 @@ body {
     margin-bottom: 20px;
     color: black;
 }
+
+

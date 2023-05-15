@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "4GWdU/j2uvTAyF5jyTc+Z0fQ2DxJmSJoeIb11AkS0wA=",
+  "Hash": "VMLs6+P006zNLIenRdC9ZzdUPjz8bRmXPMbtQ4sbfcM=",
   "Source": "adstra_task",
   "BasePath": "_content/adstra_task",
   "Mode": "Default",
@@ -85,6 +85,23 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
+      "Identity": "C:\\Users\\Dell\\source\\repos\\adstra_task\\adstra_task\\wwwroot\\Images\\4957136_4957136.jpg",
+      "SourceId": "adstra_task",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Dell\\source\\repos\\adstra_task\\adstra_task\\wwwroot\\",
+      "BasePath": "_content/adstra_task",
+      "RelativePath": "Images/4957136_4957136.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\4957136_4957136.jpg"
+    },
+    {
       "Identity": "C:\\Users\\Dell\\source\\repos\\adstra_task\\adstra_task\\wwwroot\\Images\\9148063_4077407.jpg",
       "SourceId": "adstra_task",
       "SourceType": "Discovered",
@@ -100,6 +117,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\9148063_4077407.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Dell\\source\\repos\\adstra_task\\adstra_task\\wwwroot\\Images\\iu (2).jpg",
+      "SourceId": "adstra_task",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Dell\\source\\repos\\adstra_task\\adstra_task\\wwwroot\\",
+      "BasePath": "_content/adstra_task",
+      "RelativePath": "Images/iu (2).jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\iu (2).jpg"
     },
     {
       "Identity": "C:\\Users\\Dell\\source\\repos\\adstra_task\\adstra_task\\wwwroot\\js\\site.js",

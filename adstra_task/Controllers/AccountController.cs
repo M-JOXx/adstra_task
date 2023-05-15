@@ -65,9 +65,10 @@ namespace adstra_task.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login(LoginViewModel model,string returnUrl )
+        public async Task<IActionResult> Login(LoginViewModel model,string? returnUrl )
         {
-
+            if (ModelState.IsValid)
+            {
                 var result = await accountService.Login(model);
 
                 if (result.Succeeded)
@@ -85,6 +86,7 @@ namespace adstra_task.Controllers
                 {
                     ModelState.AddModelError(string.Empty, "Something wrong in Email or Password!");
                 }
+            }
             return View(model);
          
         }
