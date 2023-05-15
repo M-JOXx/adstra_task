@@ -11,6 +11,9 @@ namespace adstra_task.Repository
         Task<SignInResult> Login(LoginViewModel model);
         
         Task<ProfileViewModel> GetCurrentUser(string id);
+
+        Task<EditUserViewModel> UpdateUserProfileGet(string id);
+        Task<IdentityResult> UpdateUserProfilePost(EditUserViewModel model);
         void Logout();
 
     }

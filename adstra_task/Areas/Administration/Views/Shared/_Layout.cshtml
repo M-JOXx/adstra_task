@@ -91,38 +91,16 @@
                 Interface
             </div>
 
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Components</span>
-                </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="buttons.html">Buttons</a>
-                        <a class="collapse-item" href="cards.html">Cards</a>
-                    </div>
-                </div>
-            </li>
+
 
 
           
             <hr class="sidebar-divider">
 
      
-            <div class="sidebar-heading">
-                Addons
-            </div>
-
 
 
           
-            <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span></a>
-            </li>
 
        
           
@@ -197,7 +175,6 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 @if (SignInManager.IsSignedIn(User))
                                 {
-           
                                     <form method="post"  asp-controller="Account" asp-action="Logout">
                                         <button type="submit" style="width:auto"
                                                 class="nav-link btn btn-link py-0">
@@ -206,7 +183,6 @@
                                     </form>
                                 }
 
-                        
                             </a>
                         
                            
@@ -267,6 +243,7 @@
                             </div>
                         </div>
 
+
                         <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-success shadow h-100 py-2">
                                 <div class="card-body">
@@ -287,7 +264,6 @@
                     </div>
 
 
-                    @*<div class="row">*@
 
                 
                          @RenderBody()
@@ -296,13 +272,7 @@
 
             </div>
 
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
-                    </div>
-                </div>
-            </footer>
+
         </div>
     </div>
     
@@ -313,25 +283,7 @@
     </a>
 
     
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
-            
+
 
     <script src="~/Theme/vendor/jquery/jquery.min.js"></script>
     <script src="~/Theme/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

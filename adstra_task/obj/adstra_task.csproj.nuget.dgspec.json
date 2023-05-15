@@ -48,6 +48,10 @@
               "target": "Package",
               "version": "[6.0.15, )"
             },
+            "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": {
+              "target": "Package",
+              "version": "[6.0.16, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[6.0.15, )"

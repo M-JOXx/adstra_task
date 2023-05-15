@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "+b/lGbix44IjcQ5EgH/dcK/GAdfr3nmdcV4PUmCsdAk=",
+  "Hash": "4GWdU/j2uvTAyF5jyTc+Z0fQ2DxJmSJoeIb11AkS0wA=",
   "Source": "adstra_task",
   "BasePath": "_content/adstra_task",
   "Mode": "Default",
@@ -83,6 +83,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\Dell\\source\\repos\\adstra_task\\adstra_task\\wwwroot\\Images\\9148063_4077407.jpg",
+      "SourceId": "adstra_task",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Dell\\source\\repos\\adstra_task\\adstra_task\\wwwroot\\",
+      "BasePath": "_content/adstra_task",
+      "RelativePath": "Images/9148063_4077407.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\9148063_4077407.jpg"
     },
     {
       "Identity": "C:\\Users\\Dell\\source\\repos\\adstra_task\\adstra_task\\wwwroot\\js\\site.js",

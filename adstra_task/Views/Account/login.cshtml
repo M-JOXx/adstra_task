@@ -1,24 +1,21 @@
 ﻿@model LoginViewModel
 
 
-
-
 <div class="row">
-    <div class="col-md-4">
-        <form method="post" >
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
+    <div class="col-md-4 m-auto">
+        <form method="post"  class="form-control rounded rounded-3 mt-5 mb-5 p-4 border-3">
+            <div  asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
+                <label asp-for="Email"  class="control-label pb-2 "></label>
+                <input asp-for="Email"  class="form-control" />
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Password" class="control-label"></label>
+                <label asp-for="Password" class="control-label pb-2 pt-2"></label>
                 <input asp-for="Password" class="form-control" />
                 <span asp-validation-for="Password" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group mt-3">
                        <div class="checkbox">
                            <label asp-for="RememberMe">
                                <input asp-for="RememberMe" />
@@ -26,17 +23,15 @@
                            </label>
                        </div>
             </div>
+            <hr class="mt-4 m-auto w-50"/>
+
+            <div class="form-group mt-3 mb-3">
+                No Account?<a href="/Account/Register/" > Create one!</a>
+            </div>
             <div class="form-group">
-                <button type="submit" class="btn btn-primary">login</button>
+                <button type="submit" class="btn btn-primary w-100">login</button>
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}

@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 
 
 builder.Services.AddDbContext<ApplicationContext>(options =>
@@ -23,6 +23,8 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
     options.Password.RequireUppercase = false;
     options.Password.RequireLowercase = false;
     options.Password.RequireNonAlphanumeric = false;
+
+    
 })
     .AddEntityFrameworkStores<ApplicationContext>();
 
@@ -41,7 +43,6 @@ builder.Services.AddAuthorization(x =>
     x.AddPolicy("user",
     policy => policy.RequireRole("user"));
 });
-
 
 var app = builder.Build();
 

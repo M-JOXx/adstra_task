@@ -54,8 +54,10 @@ namespace adstra_task.Repository
 
         public async Task<SignInResult> Login(LoginViewModel model)
         {
-            var result = await signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
 
+                var result = await signInManager.PasswordSignInAsync(model.Email, model.Password
+                    , model.RememberMe, false);
+            
             return result;
         }
         
@@ -66,6 +68,37 @@ namespace adstra_task.Repository
             return mapper.Map<ProfileViewModel>(user);
         }
 
+        public async Task<EditUserViewModel> UpdateUserProfileGet(string id)
+        {
+            var user = await userManager.FindByIdAsync(id);
+
+            if (user == null) return null;
+            
+           
+              return mapper.Map<EditUserViewModel>(user);
+
+        }
+
+        public async Task<IdentityResult> UpdateUserProfilePost(EditUserViewModel model)
+        {
+            var user = await userManager.FindByIdAsync(model.Id);
+            if (user == null ) return null;
+
+            else
+            {
+                
+                    user.Email = model.Email;
+                    user.UserName = model.UserName;
+                    user.FirstName = model.FirstName;
+                    user.LastName = model.LastName;
+                    user.PhoneNumber = model.PhoneNumber;
+                    user.City = model.City;
+
+                    var result = await userManager.UpdateAsync(user);
+                    return result;
+                
+            }
+        }
 
     }
 }

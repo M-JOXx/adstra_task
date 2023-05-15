@@ -64,22 +64,29 @@ namespace adstra_task.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        public async Task<IActionResult> Login(LoginViewModel model,string returnUrl)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Login(LoginViewModel model,string returnUrl )
         {
 
-            var result = await accountService.Login(model);
-            if (result.Succeeded)
-            {
-                if (!string.IsNullOrEmpty(returnUrl))
+                var result = await accountService.Login(model);
+
+                if (result.Succeeded)
                 {
-                    return LocalRedirect(returnUrl);
+                    if (!string.IsNullOrEmpty(returnUrl))
+                    {
+                        return LocalRedirect(returnUrl);
+                    }
+                    else
+                    {
+                        return RedirectToAction("Index", "Home");
+                    }
                 }
                 else
                 {
-                    return RedirectToAction("Index", "Home");
+                    ModelState.AddModelError(string.Empty, "Something wrong in Email or Password!");
                 }
-            }
             return View(model);
+         
         }
 
 
@@ -96,6 +103,36 @@ namespace adstra_task.Controllers
 
             return View(user);
         }
+
+        [HttpGet]
+        [Authorize]
+        public async Task<ActionResult> EditUserProfile(string id)
+        {
+            return View(await accountService.UpdateUserProfileGet(id));
+        }
+
+        [Authorize]
+        [HttpPost]
+        public async Task<ActionResult> EditUserProfile(EditUserViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = await accountService.UpdateUserProfilePost(model);
+
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Profile", new { id = model.Id });
+                }
+                else
+                {
+                    ModelState.AddModelError("Email", "This Email is already Taken");
+                    return View(model);
+                }
+            }
+
+            return View(model);
+        }
+
 
 
     }
