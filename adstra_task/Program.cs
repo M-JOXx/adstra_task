@@ -13,6 +13,8 @@ builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 builder.Services.AddDbContext<ApplicationContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+    options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+
 });
 
 
@@ -23,17 +25,17 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
     options.Password.RequireUppercase = false;
     options.Password.RequireLowercase = false;
     options.Password.RequireNonAlphanumeric = false;
+    options.User.RequireUniqueEmail = true;
 
     
 })
     .AddEntityFrameworkStores<ApplicationContext>();
 
+builder.Services.AddAutoMapper(typeof(Program));
 
 builder.Services.AddScoped<IAccountService, AccountService>();
 builder.Services.AddScoped<IAdminService, AdminService>();
 
-
-builder.Services.AddAutoMapper(typeof(Program));
 
 
 builder.Services.AddAuthorization(x =>

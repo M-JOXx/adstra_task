@@ -6,8 +6,6 @@ namespace adstra_task.Models
 {
     public class Register
     {
-        [Key]
-        public string? Id { get; set; }
 
         [Required]
         public string FirstName { get; set; }
@@ -25,7 +23,7 @@ namespace adstra_task.Models
 
         [Required]
         [DataType(DataType.Password)]
-        [Compare("Password", ErrorMessage = "Sorry, The Confrirm Password Do not match" )]
+        [Compare("Password", ErrorMessage = "Sorry,New password and confirm password don't match" )]
         public string ConfirmPassword { get; set; }
 
 

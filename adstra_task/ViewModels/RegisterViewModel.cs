@@ -21,7 +21,7 @@ namespace adstra_task.ViewModels
 
         [Required]
         [DataType(DataType.Password)]
-        [Compare("Password", ErrorMessage = "Sorry, The Confrirm Password Do not match")]
+        [Compare("Password", ErrorMessage = "Sorry,New password and confirm password don't match")]
         public string ConfirmPassword { get; set; }
 
 

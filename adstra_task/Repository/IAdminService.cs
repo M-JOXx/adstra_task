@@ -8,8 +8,8 @@ namespace adstra_task.Repository
     {
         Task<IdentityResult> CreateRole(CreateRoleViewModel Name);
         IEnumerable<UsersViewModel> AllUsers();
-        Task<List<UserRoleManager>> ManageRolesGet(string id);
-        Task<IdentityResult> ManageRolesPost(List<UserRoleManager> model, string id);
+        Task<List<UserRoleManager>> ManageRolesGet(string Id);
+        Task<IdentityResult> ManageRolesPost(List<UserRoleManager> model, string Id);
 
     }
 }

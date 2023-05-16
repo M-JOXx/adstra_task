@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "VMLs6+P006zNLIenRdC9ZzdUPjz8bRmXPMbtQ4sbfcM=",
+  "Hash": "7xb92S09lpDzhVccfxauzpdypLzsfV2Du3BztXcTADg=",
   "Source": "adstra_task",
   "BasePath": "_content/adstra_task",
   "Mode": "Default",
@@ -16,40 +16,6 @@
     }
   ],
   "Assets": [
-    {
-      "Identity": "C:\\Users\\Dell\\source\\repos\\adstra_task\\adstra_task\\obj\\Debug\\net6.0\\scopedcss\\bundle\\adstra_task.styles.css",
-      "SourceId": "adstra_task",
-      "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\Dell\\source\\repos\\adstra_task\\adstra_task\\obj\\Debug\\net6.0\\scopedcss\\bundle\\",
-      "BasePath": "_content/adstra_task",
-      "RelativePath": "adstra_task.styles.css",
-      "AssetKind": "All",
-      "AssetMode": "CurrentProject",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "ScopedCss",
-      "AssetTraitValue": "ApplicationBundle",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\Dell\\source\\repos\\adstra_task\\adstra_task\\obj\\Debug\\net6.0\\scopedcss\\bundle\\adstra_task.styles.css"
-    },
-    {
-      "Identity": "C:\\Users\\Dell\\source\\repos\\adstra_task\\adstra_task\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\adstra_task.bundle.scp.css",
-      "SourceId": "adstra_task",
-      "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\Dell\\source\\repos\\adstra_task\\adstra_task\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\",
-      "BasePath": "_content/adstra_task",
-      "RelativePath": "adstra_task.bundle.scp.css",
-      "AssetKind": "All",
-      "AssetMode": "Reference",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "ScopedCss",
-      "AssetTraitValue": "ProjectBundle",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\Dell\\source\\repos\\adstra_task\\adstra_task\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\adstra_task.bundle.scp.css"
-    },
     {
       "Identity": "C:\\Users\\Dell\\source\\repos\\adstra_task\\adstra_task\\wwwroot\\css\\site.css",
       "SourceId": "adstra_task",

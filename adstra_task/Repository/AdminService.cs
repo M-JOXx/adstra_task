@@ -24,7 +24,7 @@ namespace adstra_task.Repository
 
         public async Task<IdentityResult> CreateRole(CreateRoleViewModel model)
         {
-            var result = await _roleManager.CreateAsync(new IdentityRole(model.RoleName));
+            var result = await _roleManager.CreateAsync(new IdentityRole(model.RoleName.ToLower()));
             
             return result;
 
@@ -36,12 +36,14 @@ namespace adstra_task.Repository
             return _mapper.Map<IEnumerable<UsersViewModel>>(c); 
         }
 
-        public async  Task<List<UserRoleManager>> ManageRolesGet(string id)
+        public async  Task<List<UserRoleManager>> ManageRolesGet(string Id)
         {
-            var user = await userManager.FindByIdAsync(id);
+            var user = await userManager.FindByIdAsync(Id);
+           
             var model = new List<UserRoleManager>();
 
-             foreach (var role in _roleManager.Roles)
+
+            foreach (var role in _roleManager.Roles)
             {
                 var userRoleModel = new UserRoleManager
                 {
@@ -59,13 +61,14 @@ namespace adstra_task.Repository
                 }
                 model.Add(userRoleModel);
             };
+            
 
             return model;
         }
 
-        public async Task<IdentityResult> ManageRolesPost(List<UserRoleManager> model,string id)
+        public async Task<IdentityResult> ManageRolesPost(List<UserRoleManager> model,string Id)
         {
-            var user = await userManager.FindByIdAsync(id);
+            var user = await userManager.FindByIdAsync(Id);
             
             var roles = await userManager.GetRolesAsync(user);
             var result = await userManager.RemoveFromRolesAsync(user, roles);
@@ -75,6 +78,9 @@ namespace adstra_task.Repository
 
             return result;
         }
+
+
+
 
     }
 }

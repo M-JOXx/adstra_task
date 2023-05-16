@@ -11,8 +11,8 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"  />
     <link rel="stylesheet" href="~/css/site.css"  />
     <link rel="stylesheet" href="~/adstra_task.styles.css" asp-append-version="true" />
-    <link href="~/Theme/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"  />
+@*    <link href="~/Theme/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+*@    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"  />
 
 </head>
 <body>
@@ -55,7 +55,8 @@
                                      @User.Identity.Name</a>
           
                               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" asp-area="" asp-controller="Account" asp-action="Profile" asp-route-id="@userId">Profile</a></li>
+
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Account" asp-action="Profile" asp-route-id="@userId">Profile </a></li>
                                 <li><hr class="dropdown-divider border-3"></li>
                                 <form  method="post" asp-controller="Account" asp-action="Logout" >
                                 <li  >
@@ -85,6 +86,7 @@
     </header>
 
 
+                                   
     <div class="container">
         <main role="main" class="mt-5 pb-3">
             @RenderBody()
@@ -100,6 +102,7 @@
       <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://kit.fontawesome.com/498178f2ca.js" crossorigin="anonymous"></script>
 
       <script>
     AOS.init();

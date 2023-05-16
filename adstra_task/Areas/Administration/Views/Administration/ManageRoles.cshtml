@@ -11,7 +11,7 @@
     <div class="card-header">
         Lists
     </div>
-    <form method="post">
+    <form method="post" >
     <div class="card-body">
         @for (int i=0; i<Model.Count;i++)
         {   
@@ -19,9 +19,16 @@
                 <input type="hidden" asp-for="@Model[i].RoleId" />
                 <input type="hidden" asp-for="@Model[i].RoleName" />
                         <input asp-for="@Model[i].IsSelected" class="form-check-input" />
+
+                        @if(Model[i].RoleName =="user"){
+                        <label class="form-check-label" asp-for="@Model[i].IsSelected">
+                            @Model[i].RoleName <span style="color:red">(Authenticated)</span>
+                        </label>
+                            }else{
                         <label class="form-check-label" asp-for="@Model[i].IsSelected">
                             @Model[i].RoleName
-                </label>
+                        </label>
+                            }
             </div>
         }
 
@@ -33,3 +40,9 @@
     </form>
    
 </div>
+
+
+                            
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

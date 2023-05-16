@@ -28,20 +28,12 @@ namespace adstra_task.Repository
             signInManager.SignOutAsync();
         }
 
-        public async Task<IdentityResult> Register(Register model)
+
+        public async Task<IdentityResult> Register(RegisterViewModel model)
         {
-            var user = new ApplicationUser
-            {
-                FirstName = model.FirstName,
-                LastName = model.LastName,
-                UserName = model.Email,
-                Email = model.Email,
-                PhoneNumber = model.PhoneNumber,
-                City = model.City,
-            };
+            var user = mapper.Map<ApplicationUser>(model);
 
             var result = await userManager.CreateAsync(user, model.Password);
-
 
             if (result.Succeeded)
             {
@@ -52,11 +44,11 @@ namespace adstra_task.Repository
             return result;
         }
 
+
         public async Task<SignInResult> Login(LoginViewModel model)
         {
-
-                var result = await signInManager.PasswordSignInAsync(model.Email, model.Password
-                    , model.RememberMe, false);
+            var result = await signInManager.PasswordSignInAsync(model.Email, model.Password
+                , model.RememberMe, false);
             
             return result;
         }
@@ -68,35 +60,29 @@ namespace adstra_task.Repository
             return mapper.Map<ProfileViewModel>(user);
         }
 
-        public async Task<EditUserViewModel> UpdateUserProfileGet(string id)
+        public async Task<EditUserViewModel> UpdateUserProfileGet(string Id)
         {
-            var user = await userManager.FindByIdAsync(id);
+            var user = await userManager.FindByIdAsync(Id);
 
             if (user == null) return null;
-            
+
            
-              return mapper.Map<EditUserViewModel>(user);
+            return mapper.Map<EditUserViewModel>(user);
 
         }
 
         public async Task<IdentityResult> UpdateUserProfilePost(EditUserViewModel model)
         {
             var user = await userManager.FindByIdAsync(model.Id);
-            if (user == null ) return null;
 
+            if (user == null ) return null;
             else
             {
-                
-                    user.Email = model.Email;
-                    user.UserName = model.UserName;
-                    user.FirstName = model.FirstName;
-                    user.LastName = model.LastName;
-                    user.PhoneNumber = model.PhoneNumber;
-                    user.City = model.City;
+                mapper.Map<EditUserViewModel, ApplicationUser>(model, user);
 
-                    var result = await userManager.UpdateAsync(user);
-                    return result;
-                
+                var result = await userManager.UpdateAsync(user);
+
+                return result;
             }
         }
 

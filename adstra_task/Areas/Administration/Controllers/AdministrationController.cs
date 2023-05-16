@@ -10,41 +10,38 @@ namespace adstra_task.Areas.Administration.Controllers
 {
     [Area("Administration")]
     [Route("[Controller]/[Action]")]
-    [Authorize(Roles = "admin,user")]
     public class AdministrationController : Controller
     {
         private readonly IAdminService adminService;
+        private readonly UserManager<ApplicationUser> userManager;
         private readonly RoleManager<IdentityRole> roleManager;
         private readonly IMapper _mapper;
 
         public AdministrationController(IAdminService adminService
+            ,UserManager<ApplicationUser> userManager
             ,RoleManager<IdentityRole> roleManager
             ,IMapper mapper)
         {
             this.adminService = adminService;
+            this.userManager = userManager;
             this.roleManager = roleManager;
             _mapper = mapper;
         }
 
 
         [HttpGet]
-        public IActionResult Index()
-        {
-            var users =  adminService.AllUsers();
+        [Authorize(Roles = "admin,user")]
+        public IActionResult Index() => View(adminService.AllUsers());
 
-            ViewBag.Roles = roleManager.Roles.Count();
-            ViewBag.Users = users.Count();
-
-            return View(users);
-        }
-        
 
         [HttpGet]
+        [Authorize(Roles = "admin")]
         public IActionResult CreateRole() => View();
 
 
 
         [HttpPost]
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> CreateRole(CreateRoleViewModel model)
         {
             if (ModelState.IsValid )
@@ -66,20 +63,35 @@ namespace adstra_task.Areas.Administration.Controllers
 
 
         [HttpGet]
-        public async Task<IActionResult> ManageRoles(string id)
+        [Authorize(Roles = "admin")]
+
+        public async Task<IActionResult> ManageRoles(string Id,string userId)
         {
-            return View(await adminService.ManageRolesGet(id));
+            var user = await userManager.FindByIdAsync(Id);
+            var user2 = await userManager.FindByIdAsync(userId);
+
+            var userR1 = await userManager.IsInRoleAsync(user, "admin");
+            var userR2 = await userManager.IsInRoleAsync(user2, "admin");
+
+            if (!userR1 || !userR2)
+            {
+                var result = await adminService.ManageRolesGet(Id);
+                return View(result);
+            }
+
+            return RedirectToAction("Index");    
         }   
         
 
         [HttpPost]
-        public async Task<IActionResult> ManageRoles(List<UserRoleManager> model,string id)
+        [Authorize(Roles = "admin")]
+        public async Task<IActionResult> ManageRoles(List<UserRoleManager> model,string Id)
         {
-            var result = await adminService.ManageRolesPost(model,id);
+            var result = await adminService.ManageRolesPost(model,Id);
 
             if (result == null)
             {
-                ViewBag.ErrorMessage = $"Role Name with This Id {id} Cannot Be Found!";
+                ViewBag.ErrorMessage = $"Role Name with This Id {Id} Cannot Be Found!";
                 return View("ErrorPage");
             }
             

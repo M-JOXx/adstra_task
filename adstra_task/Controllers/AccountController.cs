@@ -22,7 +22,6 @@ namespace adstra_task.Controllers
         public IActionResult Logout()
         {
             accountService.Logout();
-
             return RedirectToAction("index", "Home");
         }
 
@@ -33,7 +32,7 @@ namespace adstra_task.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        public async Task<IActionResult> Register(Register model)
+        public async Task<IActionResult> Register(RegisterViewModel model)
         {
 
             if (ModelState.IsValid)
@@ -108,9 +107,9 @@ namespace adstra_task.Controllers
 
         [HttpGet]
         [Authorize]
-        public async Task<ActionResult> EditUserProfile(string id)
+        public async Task<ActionResult> EditUserProfile(string Id)
         {
-            return View(await accountService.UpdateUserProfileGet(id));
+            return View(await accountService.UpdateUserProfileGet(Id));
         }
 
         [Authorize]
@@ -127,7 +126,10 @@ namespace adstra_task.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("Email", "This Email is already Taken");
+                    foreach (var item in result.Errors)
+                    {
+                        ModelState.AddModelError("", item.Description);
+                    }
                     return View(model);
                 }
             }

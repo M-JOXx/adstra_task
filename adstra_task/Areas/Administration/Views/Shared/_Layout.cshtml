@@ -47,27 +47,34 @@
 <body id="page-top">
    
     <div id="wrapper">
-   
-    
-  
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
        
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <li  class="sidebar-brand d-flex align-items-center justify-content-center" href="/Administration/Index">
                 <div class="sidebar-brand-text mx-3">AdstraTech</div>
-            </a>
+            </li>
 
             
-            <hr class="sidebar-divider my-0">
+            <hr class="sidebar-divider my">
 
+            <div class="sidebar-heading">
+                Main
+            </div>
             
-            <li class="nav-item active">
+            <li class="nav-item active mb-4">
                 <a class="nav-link"  asp-action="Index" asp-controller="Administration" asp-area="Administration" >
                     <svg class="fas" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
                         <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"/>
                     </svg>
                     <span>Users</span></a>
             </li>
+
+            
+            <div class="sidebar-heading">
+                Interface
+            </div>
+
+
             <li class="nav-item active">
                 <a class="nav-link "  asp-action="Index" asp-controller="Home" asp-area="" >
                     <i class="fa fa-chevron-left" aria-hidden="true"></i>
@@ -76,26 +83,15 @@
             </li>
             
 
-@*            <li class="nav-item active">
-                <a class="nav-link" asp-action="ManageRoles" asp-controller="administration" asp-area="administration" >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-circle-fill" viewBox="0 0 16 16">
-                         <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7z"/>
-                    </svg>
-                    <span>Roles</span></a>
-            </li>*@
 
-            <hr class="sidebar-divider">
+      
 
-
-            <div class="sidebar-heading">
-                Interface
-            </div>
 
 
 
 
           
-            <hr class="sidebar-divider">
+         
 
      
 
@@ -129,19 +125,9 @@
                     </button>
 
                   
-                    <form
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                        <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                                aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
-
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                    <div class="d-sm-flex align-items-center justify-content-between ">
+                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+                    </div>
 
                 
                     <ul class="navbar-nav ml-auto">
@@ -214,69 +200,20 @@
                 </nav>
            
             <div class="container-fluid">
-
-
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                    <div class="mt-5">
+                        @await Component.InvokeAsync("AdminDetails")
                     </div>
-
-       
-                    <div class="row">
-
-    
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-primary shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Users</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">@ViewBag.Users</div>
-                                        </div>
-                                        <svg class="fas text-gray-300" xmlns="http://www.w3.org/2000/svg" width="36" height="32" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
-                                            <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"/>
-                                        </svg>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-success shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Roles</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">@ViewBag.Roles</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
+                    <div class="mt-5 mb-5">
+                            @RenderBody()
                     </div>
-
-
-
                 
-                         @RenderBody()
-
-                                   
-
             </div>
 
 
         </div>
     </div>
     
-
+    </div>
     
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
