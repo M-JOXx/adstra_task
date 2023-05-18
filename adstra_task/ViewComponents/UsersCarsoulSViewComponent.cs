@@ -16,12 +16,12 @@ namespace adstra_task.ViewComponents
             this.roleManager = roleManager;
         }
 
-        public IViewComponentResult Invoke()
+        public IViewComponentResult Invoke(string Id)
         {
-            var data = new UsersCarousel()
-            {
-                users = userManager.Users.Take(8)
-            };
+            var data = new UsersCarousel();
+
+            data.users = userManager.Users.Where(x => x.Id != Id).Take(8);
+
 
             return View(data);
         }

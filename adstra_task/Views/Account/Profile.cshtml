@@ -8,7 +8,7 @@
     <div class="row d-flex justify-content-center align-items-center h-100" >
         <div class="col-12">
             <div class="card" data-aos="fade-left" data-aos-delay="160">
-                <div class="rounded-top text-white d-flex flex-row" style="background-color: #000; height:200px;">
+                <div class="rounded-top text-white d-flex flex-row" style="background-color: #0C5EE2; height:200px;">
                     <div  class="ms-4  d-flex flex-column" >
                         <div class=" ms-1 mt-5  " >
                         <h1 id="headN">@Model.FullName</h1>
@@ -27,9 +27,25 @@
                          <div class="mb-5">
                             <p class="lead fw-normal mb-1">About</p>
                             <div class="p-4" style="background-color: #f8f9fa;">
-                              <p class="font-italic mb-1">Phone Number : @Model.PhoneNumber</p>
-                              <p class="font-italic mb-1">Email : @Model.Email</p>
-                              <p class="font-italic mb-0">Photographer</p>
+                                <table class="table">
+                                    <tr class="font-italic mb-1">
+                                        <td>Full Name : </td>
+                                        <td>@Model.FullName</td>
+                                     </tr>                                    
+                                     <tr class="font-italic mb-1">
+                                        <td>Phone Number :</td>
+                                        <td>@Model.PhoneNumber</td>
+                                     </tr>                                    
+                                     <tr class="font-italic mb-1">
+                                        <td>Email :</td>
+                                        <td>@Model.Email</td>
+                                     </tr>                                     
+                                     <tr class="font-italic mb-1">
+                                        <td>City :</td>
+                                        <td>@Model.City</td>
+                                     </tr>
+                                </table>
+
                             </div>
                          </div>
                     </div>
@@ -43,7 +59,7 @@
     ||(await authorizationService.AuthorizeAsync(User,"user")).Succeeded){
         <div class=" mb-5">
 
-    @await Component.InvokeAsync("UsersCarsoulS")
+    @await Component.InvokeAsync("UsersCarsoulS",@Model.Id)
     </div>
     }
 </section>
