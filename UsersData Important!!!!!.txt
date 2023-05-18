@@ -1,0 +1,38 @@
+//Users Data Imporatant! 
+
+
+
+//Both Admins
+**********************************
+EMAIL: mohammad@gmail.com  
+Password : 456
+
+EMAIL: MoathKhaled@gmail.com
+Password : 456
+
+**********************************
+
+
+
+
+
+
+
+
+USE [adstra_taskDB]
+GO
+INSERT [dbo].[AspNetRoles] ([Id], [Name], [NormalizedName], [ConcurrencyStamp]) VALUES (N'47eae3ff-b2a2-4abb-bb56-74e30f618633', N'admin', N'ADMIN', N'd0b30b92-92e6-46e1-81d0-a37786e1d6a6')
+INSERT [dbo].[AspNetRoles] ([Id], [Name], [NormalizedName], [ConcurrencyStamp]) VALUES (N'be6bade3-ba05-40c4-8867-a49c62cbdbac', N'user', N'USER', N'6257e914-fb63-4fbc-a733-e63484d191dd')
+GO
+INSERT [dbo].[AspNetUsers] ([Id], [City], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount], [FirstName], [LastName]) VALUES (N'52e15e35-fdc9-4c46-81ac-441c7dbad2dd', N'Dki Jakarta', N'Mohammad@gmail.com', N'MOHAMMAD@GMAIL.COM', N'mohammad@gmail.com', N'MOHAMMAD@GMAIL.COM', 0, N'AQAAAAEAACcQAAAAECCFHUzxFQEV3lPf1Iz05Q4v7iamyhZ+nnsX7ueWUs6YAAvguBITuHDLfvbsjSPXAA==', N'7MJ7JYK7NYG4WMAXKEMVE7MWDO3AGUL5', N'a0efe07a-e422-4e87-9ecc-c9544dd98443', N'0788896141', 0, 0, NULL, 1, 0, N'Nathan', N'Howard')
+INSERT [dbo].[AspNetUsers] ([Id], [City], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount], [FirstName], [LastName]) VALUES (N'd25de45d-0067-4170-aad8-15d70b6fdaeb', N'Irbid', N'MoathKhaled@gmail.com', N'MOATHKHALED@GMAIL.COM', N'MoathKhaled@gmail.com', N'MOATHKHALED@GMAIL.COM', 0, N'AQAAAAEAACcQAAAAECLlYPm5AFpqE+YVrRrW3qwuJnqcG5hIK/MqNN6t2SMUsImiaZ8gXnMN9sIKwT8b1g==', N'LIZKVUUHV4LGTIJNL7UF46B4IT7MYZOU', N'bd7b042b-2259-4170-bdc0-df68e4699ab3', N'0788896141', 0, 0, NULL, 1, 0, N'Moath', N'khaled')
+GO
+INSERT [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'52e15e35-fdc9-4c46-81ac-441c7dbad2dd', N'47eae3ff-b2a2-4abb-bb56-74e30f618633')
+INSERT [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'd25de45d-0067-4170-aad8-15d70b6fdaeb', N'47eae3ff-b2a2-4abb-bb56-74e30f618633')
+GO
+INSERT [dbo].[__EFMigrationsHistory] ([MigrationId], [ProductVersion]) VALUES (N'20230510222631_ConnectWithDB', N'6.0.15')
+INSERT [dbo].[__EFMigrationsHistory] ([MigrationId], [ProductVersion]) VALUES (N'20230510232245_AddIdentityUser', N'6.0.15')
+INSERT [dbo].[__EFMigrationsHistory] ([MigrationId], [ProductVersion]) VALUES (N'20230511134921_changeIdRe', N'6.0.15')
+INSERT [dbo].[__EFMigrationsHistory] ([MigrationId], [ProductVersion]) VALUES (N'20230511150453_UpdateLFUserName', N'6.0.15')
+INSERT [dbo].[__EFMigrationsHistory] ([MigrationId], [ProductVersion]) VALUES (N'20230516020348_RemoveRegisterModel', N'6.0.15')
+GO

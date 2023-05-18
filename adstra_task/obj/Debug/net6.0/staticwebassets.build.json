@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "7xb92S09lpDzhVccfxauzpdypLzsfV2Du3BztXcTADg=",
+  "Hash": "SY84wPAgOOKbIGupCrDr5iTcqcNNLtCn3LOGefwjIKk=",
   "Source": "adstra_task",
   "BasePath": "_content/adstra_task",
   "Mode": "Default",
@@ -17,12 +17,12 @@
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\Dell\\source\\repos\\adstra_task\\adstra_task\\wwwroot\\css\\site.css",
+      "Identity": "C:\\Users\\Dell\\source\\repos\\adstra_task\\adstra_task\\wwwroot\\css\\AdminStyle.css",
       "SourceId": "adstra_task",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Dell\\source\\repos\\adstra_task\\adstra_task\\wwwroot\\",
       "BasePath": "_content/adstra_task",
-      "RelativePath": "css/site.css",
+      "RelativePath": "css/AdminStyle.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -31,7 +31,41 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\site.css"
+      "OriginalItemSpec": "wwwroot\\css\\AdminStyle.css"
+    },
+    {
+      "Identity": "C:\\Users\\Dell\\source\\repos\\adstra_task\\adstra_task\\wwwroot\\css\\Profile.css",
+      "SourceId": "adstra_task",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Dell\\source\\repos\\adstra_task\\adstra_task\\wwwroot\\",
+      "BasePath": "_content/adstra_task",
+      "RelativePath": "css/Profile.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Profile.css"
+    },
+    {
+      "Identity": "C:\\Users\\Dell\\source\\repos\\adstra_task\\adstra_task\\wwwroot\\css\\site1.css",
+      "SourceId": "adstra_task",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Dell\\source\\repos\\adstra_task\\adstra_task\\wwwroot\\",
+      "BasePath": "_content/adstra_task",
+      "RelativePath": "css/site1.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\site1.css"
     },
     {
       "Identity": "C:\\Users\\Dell\\source\\repos\\adstra_task\\adstra_task\\wwwroot\\favicon.ico",
@@ -49,23 +83,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
-    },
-    {
-      "Identity": "C:\\Users\\Dell\\source\\repos\\adstra_task\\adstra_task\\wwwroot\\Images\\4957136_4957136.jpg",
-      "SourceId": "adstra_task",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Dell\\source\\repos\\adstra_task\\adstra_task\\wwwroot\\",
-      "BasePath": "_content/adstra_task",
-      "RelativePath": "Images/4957136_4957136.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Images\\4957136_4957136.jpg"
     },
     {
       "Identity": "C:\\Users\\Dell\\source\\repos\\adstra_task\\adstra_task\\wwwroot\\Images\\9148063_4077407.jpg",

@@ -7,6 +7,7 @@
 
 <h1 class="mb-5">Roles</h1>
 
+
 <div class="card">
     <div class="card-header">
         Lists
@@ -24,18 +25,18 @@
                         <label class="form-check-label" asp-for="@Model[i].IsSelected">
                             @Model[i].RoleName <span style="color:red">(Authenticated)</span>
                         </label>
-                            }else{
+                        }else{
                         <label class="form-check-label" asp-for="@Model[i].IsSelected">
                             @Model[i].RoleName
                         </label>
-                            }
+                        }
             </div>
         }
 
     </div>
     <div class="card-footer">
         <button type="submit" class="btn btn-info"> Update </button>
-        <a class="btn btn-info" asp-controller="Administration" asp-action="Index"> Cancel </a>
+        <a class="btn btn-info" asp-controller="Administration" asp-action="Users"> Cancel </a>
     </div>
     </form>
    

@@ -1,0 +1,51 @@
+﻿@model IEnumerable<RolesViewModel>
+
+
+@if ((await authorizationService.AuthorizeAsync(User, "admin")).Succeeded)
+{
+    <p>
+        <a class="btn btn-primary" asp-action="CreateRole">Select Role</a>
+    </p>
+}
+
+<div class="card">
+    <div class="card-header">
+        <h3>Roles</h3>
+    </div>
+    <div class="card-body">
+        <table id="myTable" class="table  table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RoleId)
+            </th><th>
+                @Html.DisplayNameFor(model => model.RoleName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoleId)
+            </td>            
+            <td>
+                @Html.DisplayFor(modelItem => item.RoleName)
+            </td>
+            <td>
+@*                @if ((await authorizationService.AuthorizeAsync(User, "admin")).Succeeded)
+                {*@
+@*                    <form method="post" >
+                        <button type="submit" class="o btn btn-danger" asp-controller="Administration"  asp-action="DeleteUser" asp-route-id="@item.Id">Delete</button>
+                    </form>*@
+                    @*<a class="o btn btn-info"  asp-controller="Account" asp-action="Profile" asp-route-id="@item.Id">Profile</a> *@
+                    @*<a class="o btn btn-primary" asp-action="ManageRoles" asp-route-Id="@item.Id" asp-route-userId="@CUserId">Edit</a>*@
+                @*}*@
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+    </div>
+</div>

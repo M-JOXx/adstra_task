@@ -24,7 +24,7 @@ namespace adstra_task.Repository
 
         public async Task<IdentityResult> CreateRole(CreateRoleViewModel model)
         {
-            var result = await _roleManager.CreateAsync(new IdentityRole(model.RoleName.ToLower()));
+            var result = await _roleManager.CreateAsync(new IdentityRole(model.RoleName.ToString().ToLower()));
             
             return result;
 
@@ -32,10 +32,15 @@ namespace adstra_task.Repository
 
         public IEnumerable<UsersViewModel> AllUsers()
         {
-            var c = userManager.Users;
-            return _mapper.Map<IEnumerable<UsersViewModel>>(c); 
+            var uers = userManager.Users;
+            return _mapper.Map<IEnumerable<UsersViewModel>>(uers); 
         }
+        public IEnumerable<RolesViewModel> AllRoles()
+        {
+            var roles = _roleManager.Roles;
 
+            return _mapper.Map<IEnumerable<RolesViewModel>>(roles);
+        }
         public async  Task<List<UserRoleManager>> ManageRolesGet(string Id)
         {
             var user = await userManager.FindByIdAsync(Id);
@@ -79,7 +84,19 @@ namespace adstra_task.Repository
             return result;
         }
 
+        public async Task<IdentityResult> DeleteUserPost(string id)
+        {
+            var user = await userManager.FindByIdAsync(id);
 
+            
+            var roleResult = await userManager.IsInRoleAsync(user, "admin");
+            if (roleResult == false)
+            {
+                var result = await userManager.DeleteAsync(user);
+            }
+
+            return IdentityResult.Failed();
+        }
 
 
     }

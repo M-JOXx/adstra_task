@@ -2,26 +2,25 @@
 
 
 
-<div class="container">
+<div class="container  card border-5">
     <div class="row">
-        <div class="col-12">
-            <h2>Create Role : </h2>
+        <div class="col-12 mt-4">
+            <h2 >Create Role : </h2>
         </div>
 </div>
 
 <div class="row">
     <div class="col-lg-12">
-        <form  method="post" class="form-control">
+        <form  method="post" >
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group ">
+            <div class="form-group">
                 <label asp-for="RoleName" class="control-label"></label>
-                <select asp-for="RoleName" class="w-50 mt-4" >
+                <select asp-for="RoleName" class="w-50 mt-4 form-select" >
                     <option >Admin</option>
                     <option >User</option>
-                </select> 
+                </select>
                 <span asp-validation-for="RoleName" class="text-danger"></span>
             </div>
-
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary " />
             </div>

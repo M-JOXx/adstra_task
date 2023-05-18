@@ -1,15 +1,6 @@
 ﻿<!DOCTYPE html>
 
 
-
-
-@using Microsoft.AspNetCore.Authorization
-
-@inject IAuthorizationService authorizationService
-
-@inject SignInManager<ApplicationUser> SignInManager;
- 
-
 <html >
 <head>
     
@@ -22,10 +13,9 @@
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
-
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
     <link href="~/Theme/css/sb-admin-2.min.css" rel="stylesheet">
-  
-
+    <link href="~/css//AdminStyle.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css"/>
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4-4.6.0/jq-3.6.0/jszip-2.5.0/dt-1.13.1/b-2.3.3/b-html5-2.3.3/b-print-2.3.3/r-2.4.0/sl-1.5.0/datatables.min.css"/>
  
@@ -61,13 +51,24 @@
                 Main
             </div>
             
-            <li class="nav-item active mb-4">
-                <a class="nav-link"  asp-action="Index" asp-controller="Administration" asp-area="Administration" >
+            <li class="nav-item active mb-2">
+                <a class="nav-link"  asp-action="Users" asp-controller="Administration" asp-area="Administration" >
                     <svg class="fas" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
                         <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"/>
                     </svg>
                     <span>Users</span></a>
             </li>
+
+            @if ((await authorizationService.AuthorizeAsync(User, "admin")).Succeeded)
+             {
+             <li class="nav-item active mb-4">
+                <a class="nav-link"  asp-action="Roles" asp-controller="Administration" asp-area="Administration" >
+                                                      <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+
+                    <span>Roles</span></a>
+            </li>
+              }           
+
 
             
             <div class="sidebar-heading">
@@ -238,10 +239,14 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/v/bs4-4.6.0/jq-3.6.0/jszip-2.5.0/dt-1.13.1/b-2.3.3/b-html5-2.3.3/b-print-2.3.3/r-2.4.0/sl-1.5.0/datatables.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
-    <script src="~/Theme/vendor/datatables/dataTables.bootstrap4.min.js"></script>
-    <script src="~/Theme/js/demo/datatables-demo.js"></script>
 
 
+   <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
+ <script>
+$(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+</script>
 </body>
 
     @await RenderSectionAsync("Scripts", required: false)

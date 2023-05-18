@@ -16,10 +16,15 @@ namespace adstra_task.AutoMapper
 
             CreateMap<EditUserViewModel, ApplicationUser>();//Post
 
-            CreateMap<ApplicationUser, UsersViewModel >()
+            CreateMap<ApplicationUser, UsersViewModel >()//All roles #Dashboard
                 .ForMember(dest => dest.FullName, source => source.MapFrom(s => s.FirstName + " " + s.LastName))
                 .ForMember(dest => dest.Email, source => source.MapFrom(s => s.Email))
                 .ForMember(dest => dest.PhoneNumber, source => source.MapFrom(s => s.PhoneNumber)).ReverseMap();
+
+            CreateMap<IdentityRole, RolesViewModel>()// All Users #Dashboard
+                .ForMember(dest => dest.RoleId, source => source.MapFrom(s => s.Id))
+                .ForMember(dest => dest.RoleName, source => source.MapFrom(s => s.NormalizedName))
+                .ReverseMap();
             CreateMap<ApplicationUser, ProfileViewModel>()
                 .ForMember(dest => dest.FullName, source => source.MapFrom(s => s.FirstName + " " + s.LastName));
 

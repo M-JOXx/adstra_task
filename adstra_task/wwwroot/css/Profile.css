@@ -1,0 +1,19 @@
+﻿#headN {
+    margin-top:50px;
+    width: 500px;
+}
+
+#CardsU:hover {
+    box-shadow: 3px 3px 3px #E3E3E3;
+    z-index: 5
+}
+
+#CardsUa{
+    color:black;
+    text-decoration:none
+}
+.btn{
+    margin-top:50px;
+    width:150px
+}
+

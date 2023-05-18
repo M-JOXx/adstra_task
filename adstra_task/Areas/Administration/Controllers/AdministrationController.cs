@@ -31,7 +31,27 @@ namespace adstra_task.Areas.Administration.Controllers
 
         [HttpGet]
         [Authorize(Roles = "admin,user")]
-        public IActionResult Index() => View(adminService.AllUsers());
+        public IActionResult Users(string? EAccess,string? Error)
+        {
+            var data = adminService.AllUsers();
+            if (EAccess != null || Error != null)
+            {
+                ViewBag.ErrorAccess = EAccess;
+                ViewBag.Error = Error;
+            }
+
+            return View(data);
+        }
+
+        [HttpGet]
+        [Authorize(Roles = "admin")]
+        public IActionResult Roles()
+        {
+            var data = adminService.AllRoles();
+           
+
+            return View(data);
+        }
 
 
         [HttpGet]
@@ -44,7 +64,7 @@ namespace adstra_task.Areas.Administration.Controllers
         [Authorize(Roles = "admin")]
         public async Task<IActionResult> CreateRole(CreateRoleViewModel model)
         {
-            if (ModelState.IsValid )
+            if (ModelState.IsValid)
             {
                     var result = await adminService.CreateRole(model);
 
@@ -57,29 +77,55 @@ namespace adstra_task.Areas.Administration.Controllers
                         ModelState.AddModelError("", errors.Description);
                     }
             }
-       
+                
             return View(model);
+        }
+
+
+        [HttpPost]
+        [Authorize(Roles = "admin")]
+        public async Task<IActionResult> DeleteUser(string id)
+        {
+            var user = await userManager.FindByIdAsync(id);
+           
+            var roleResult = await userManager.IsInRoleAsync(user, "admin");
+
+            if (roleResult == false)
+            {
+                var result = await adminService.DeleteUserPost(user.Id);
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Users", "Administration");
+                }
+            }
+
+                var error = $"User with this Id = [{id}] can't be deleted!";
+
+                return RedirectToAction("Users", "Administration", new { Error = error });
+
         }
 
 
         [HttpGet]
         [Authorize(Roles = "admin")]
 
-        public async Task<IActionResult> ManageRoles(string Id,string userId)
+        public async Task<IActionResult> ManageRoles(string Id)
         {
             var user = await userManager.FindByIdAsync(Id);
-            var user2 = await userManager.FindByIdAsync(userId);
 
-            var userR1 = await userManager.IsInRoleAsync(user, "admin");
-            var userR2 = await userManager.IsInRoleAsync(user2, "admin");
 
-            if (!userR1 || !userR2)
+            var userR = await userManager.IsInRoleAsync(user, "admin");
+        
+
+            if (!userR)
             {
                 var result = await adminService.ManageRolesGet(Id);
                 return View(result);
             }
 
-            return RedirectToAction("Index");    
+            var error = "You don't have a permission ,Admin";
+
+            return RedirectToAction("Users", "Administration",new { EAccess = error });    
         }   
         
 
@@ -103,7 +149,7 @@ namespace adstra_task.Areas.Administration.Controllers
             }
 
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Users");
         }
 
 

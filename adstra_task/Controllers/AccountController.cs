@@ -11,10 +11,16 @@ namespace adstra_task.Controllers
     public class AccountController : Controller
     {
         private readonly IAccountService accountService;
+        private readonly UserManager<ApplicationUser> userManager;
+        private readonly RoleManager<IdentityRole> roleManager;
 
-        public AccountController(IAccountService accountService)
+        public AccountController(IAccountService accountService
+            ,UserManager<ApplicationUser> userManager
+            ,RoleManager<IdentityRole> roleManager)
         {
             this.accountService = accountService;
+            this.userManager = userManager;
+            this.roleManager = roleManager;
         }
 
         [HttpPost]
@@ -25,6 +31,7 @@ namespace adstra_task.Controllers
             return RedirectToAction("index", "Home");
         }
 
+
         [HttpGet]
         [AllowAnonymous]
         public IActionResult Register() => View();
@@ -34,7 +41,6 @@ namespace adstra_task.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Register(RegisterViewModel model)
         {
-
             if (ModelState.IsValid)
             {
                 var result = await accountService.Register(model);
@@ -105,11 +111,21 @@ namespace adstra_task.Controllers
             return View(user);
         }
 
+
         [HttpGet]
         [Authorize]
         public async Task<ActionResult> EditUserProfile(string Id)
         {
-            return View(await accountService.UpdateUserProfileGet(Id));
+            var user = await userManager.GetUserAsync(User);
+
+            if (user.Id == Id)
+            {
+                var result =await accountService.UpdateUserProfileGet(Id);
+                return View(result);
+            }
+
+            return RedirectToAction("Profile", new { id = Id});
+
         }
 
         [Authorize]

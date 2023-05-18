@@ -3,7 +3,7 @@
 }
 
   <section  class="hero">
-    <div class="container position-relative">
+    <div  class="container position-relative ">
       <div class="row gy-5" data-aos="fade-in">
         <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center text-center text-lg-start">
           <h2  data-aos="fade-left" data-aos-delay="120" >Welcome to <span id="ads">AdstraTask</span></h2>
@@ -19,5 +19,158 @@
       </div>
     </div>
 
+
+
+     <div class="icon-boxes mt-5 ">
+      <div class="container  ">
+        <div class="row   gy-4 mt-5 ">
+          <div class="col-md-3 m-auto" data-aos="fade-up" data-aos-delay="100">
+            <a href="#about1"  class="TI">
+            <div class="icon-box text-center ">
+              <div class="icon"><i class="bi bi-easel"></i></div>
+              <h4 class="title">About</h4>
+            </div>
+            </a>
+          </div>
+
+          <div class="col-md-3 m-auto " data-aos="fade-up" data-aos-delay="200">
+              <a href="#detailsS" class="TI">
+            <div class="icon-box text-center ">
+              <div class="icon"><i class="bi bi-gem"></i></div>
+              <h4 class="title ">Contents </h4>
+            </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
     
   </section>
+
+
+      <section id="about1" class="about ">
+        <div class="container" data-aos="fade-up">
+            <div class="row m-auto">
+                <div class="col-md-12 ">
+            <div class="section-header text-center  mt-5" >
+              <h2 >About</h2>
+              <p class=" " >this website Created by using .Net core 6.0 , so make sure you have this version before download the folder </p>
+              <hr class="sidebar-divider m-auto w-25"/>
+              <p > The Idea of  the  web Application is register users and each user have set of roles 
+              to Access  pages such as the profile page to update their information (Full Name,email city,phone Number)</p>
+              <p> only Admins and authenticated users will have the premission to access Dashboard area, the users
+                  will be selected by admins to give them the role  </p>
+              
+                </div>
+            </div>
+            </div>
+
+            <div class="sectioncon" id="detailsS" >
+                <div class="row" >
+                    <div data-aos="fade-up" data-aos-delay="100">
+
+              <h2>Application Contents<span style="font-size:20px"> (main folders)</span></h2>
+              <h4>Controllers :</h4>
+                    </div>
+              <div class="ml-2" data-aos="fade-up" data-aos-delay="110">
+              <ul>
+                  <li >AdministraionController:</li>
+                  <ul>
+                      <li>Users</li>
+                      <li>Roles</li>
+                      <li>CreateRole</li>
+                      <li>ManageRoles</li>
+                      <li>DeleteUser</li>
+                      <li class="text-danger">There is no DeleteRole method because ,the Admin have select option (Admin,User)</li>
+                  </ul>
+                  <li >AccountController</li>
+                    <ul>
+                      <li>Register</li>
+                      <li>LogIn</li>
+                      <li>Profile</li>
+                      <li>EditUserProfile</li>
+                    </ul>
+                  <li >HomeController</li>
+                    <ul>
+                      <li>Index</li>
+                    </ul>
+              </ul>
+              </div>
+
+              <div data-aos="fade-up" data-aos-delay="100">
+              <h4>Repository Files:</h4>
+              <h5>Include two Interface classes :</h5>
+              </div>
+              <div id="lil" class="ml-2" data-aos="fade-up" data-aos-delay="100">
+                  <ul>
+                      <li>IAccountService</li>
+                      <ul>
+                          <li>Register(RegisterViewModel model)</li>
+                          <li>Login(LoginViewModel model);</li>
+                          <li>GetCurrentUser(string id)</li>
+                          <li>UpdateUserProfileGet(string Id)<span id="comment">//Get user details</span></li>
+                          <li>UpdateUserProfilePost(EditUserViewModel model)<span id="comment">//Post user data EditUserViewModel</span></li>
+                      </ul>
+                      <li>IAdminService</li>
+                      <ul >
+                          <li>CreateRole(CreateRoleViewModel Name)</li>
+                          <li>AllUsers()<span id="comment">//return IEnumerable of Type UsersViewModel usres //Check MappingProfile.cs to see for how mapping done! </span></li>
+                          <li>AllRoles()<span id="comment">//return IEnumerable of Type RolesViewModel Roles //Check MappingProfile.cs to see for how mapping done!</span> </li>
+                          <li>ManageRolesGet(string id) <span id="comment">//Get</span></li>
+                          <li>ManageRolesPost(List<UserRoleManager> model, string Id) <span id="comment">//Post</span></li>
+                          <li>DeleteUserPost(string id)</li>
+                      </ul>
+                      <li>AccountService</li>
+                      <ul>
+                          <li>Register(RegisterViewModel model)</li>
+                          <li>Login(LoginViewModel model)</li>
+                          <li>GetCurrentUser(string id)</li>
+                          <li>UpdateUserProfileGet(string id)</li>
+                          <li>UpdateUserProfilePost(EditUserViewModel model)</li>
+                      </ul>
+                      <li>AdminService</li>
+                      <ul>
+                          <li>CreateRole(CreateRoleViewModel model)</li>
+                          <li>AllUsers()</li>
+                          <li>AllRoles()</li>
+                          <li>ManageRolesGet(string Id)</li>
+                          <li>DeleteUserPost(string id)</li>
+                      </ul>
+                  </ul>
+              </div>
+
+              <div data-aos="fade-up" data-aos-delay="100">
+                <h4>Models:</h4>
+                <h5>Domain Models :</h5>
+              </div>
+              <div class="ml-2" data-aos="fade-up" data-aos-delay="100">
+                    <ul>
+                        <li>AdminDetails.cs</li>
+                        <li>ApplicationUser : IdentityUser</li>
+                        <li>EditUser.cs</li>
+                        <li>UserRoleManager.cs</li>
+                        <li>UsersCarouse.csl</li>
+                    </ul>
+              </div>
+
+
+              <div data-aos="fade-up" data-aos-delay="100">
+                <h4>ViewModels:</h4>
+                <h5 >mapping these Models with Domain Models:</h5>
+              </div>
+              <div class="ml-2" data-aos="fade-up" data-aos-delay="100">
+                    <ul>
+                        <li>CreateRoleViewModel.cs</li>
+                        <li>EditUserViewModel.cs</li>
+                        <li>LoginViewModel.cs</li>
+                        <li>ProfileViewModel.cs</li>
+                        <li>RegisterViewModel.cs</li>
+                        <li>RolesViewModel.cs</li>
+                        <li>UsersViewModel.cs</li>
+                    </ul>
+              </div>
+
+            </div>
+            </div>
+        </div>
+      </section>

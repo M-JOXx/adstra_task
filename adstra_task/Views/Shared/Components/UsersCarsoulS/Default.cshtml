@@ -1,0 +1,40 @@
+﻿@model UsersCarousel
+
+
+
+<div  class="container ">
+<div class="row mt-5 text-center">
+        <hr  class="w-50 m-auto mb-3">
+        <h2 class=" text-muted" >Users</h2>
+        <p>Users Explorer</p>
+</div>
+<div class="row m-auto" >
+    @foreach (var item in Model.users)
+    {
+        <div class="col-md-4 ">
+          <a id="CardsUa" href="/Account/Profile/@item.Id"  >
+            <div id="CardsU" class="card mt-5 border-3" >
+                <div class="card-body" style="background-color: #000; height:100px;">>
+                  <h5 class="card-title text-white">@item.FirstName  @item.LastName</h5>
+                </div>
+
+
+                <div class="card-body">
+                     <div class="mb-5 mt-2">
+                         <div class="mb-5">
+                            <p class="lead fw-normal mb-1">Information :</p>
+                            <div class="p-4" style="background-color: #f8f9fa;">
+                              <p class="font-italic mb-1">Phone Number : @item.PhoneNumber</p>
+                              <p class="font-italic mb-1">Email : @item.Email</p>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            </div>
+
+               </a>
+        </div>
+    }
+</div>
+
+</div>
